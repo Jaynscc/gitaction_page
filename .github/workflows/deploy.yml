@@ -19,11 +19,13 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install  # 如果你的项目使用了 Node.js，调整为合适的依赖安装命令
-
+        working-directory: ./reactpage  
+        run: npm install
+    
       - name: Build the project
-        run: npm run build  # 替换为你的构建命令
-
+        working-directory: ./reactpage # 如果项目在子目录中，指定正确的路径
+        run: npm run build
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
